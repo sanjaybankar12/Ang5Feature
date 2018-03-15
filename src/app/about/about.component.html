@@ -1,0 +1,9 @@
+<p>
+  Path Parameter : {{paramStr}}
+</p>
+<p>Hobbies List : {{hobbies}}</p>
+<hr/>
+<div *ngFor="let post of posts">
+  <h4>{{post.id}}) {{post.title}}</h4>
+  <p>{{post.body}}</p>
+</div>

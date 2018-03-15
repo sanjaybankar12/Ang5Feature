@@ -1,0 +1,29 @@
+<div>
+    <h4>User Information</h4>
+
+    <h5>Name : {{name}}</h5>
+    <input type="text" [(ngModel)]="name" name="name" />
+
+    <p>{{email}}</p>
+    <p>{{address.city}}, {{address.state}}, {{address.pin}}</p>
+</div>
+<p></p>
+<hr/>
+<button type="button" (click)="toggleHobbies()" class="btn btn-primary">{{isShowHobbies?"Hide":"Show"}} Hobbies</button>
+<p></p>
+<div *ngIf="isShowHobbies">
+    <h4>My Hobbies ({{count}})</h4>
+    <form (submit)="addHobbies()">
+        <input type="text" required="true" [(ngModel)]="hobby" name="hobby" />
+        <button type="submit" class="btn btn-success">Add Hobby</button>
+    </form>
+    <ul>
+        <li *ngFor="let hobby of hobbies;let i=index">{{hobby}} &nbsp; &nbsp;
+            <button type="button" (click)="removeHobbies(i)" class="btn btn-sm btn-danger">X</button></li>
+    </ul>
+
+</div>
+
+<app-child [model]="mymodel" (notifyMe)="getNotification($event)"></app-child>
+
+<h5>{{receiveData}}</h5>
